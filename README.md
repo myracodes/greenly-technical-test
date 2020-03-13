@@ -4,7 +4,7 @@ You are a new developer in the Greenly team, and your first job is to add a feat
 
 ## System specifications
 
-Hi and welcome to the team. We are in the future, and Greenly has extended its activities by opening an ecommerce store that have several green partners with discount offers. Your task is to add a new feature to our system: we want to add a new type of discount offer to our ecommerce store. First an introduction to our system:
+Hi and welcome to the team. We are in the future, and Greenly has extended its activities by opening an ecommerce store that gathers several Greenly partners offering their products with discount offers. Your task is to add a new feature to our system: we want to add a new partner to our ecommerce store which has a different type of discount offer . First an introduction to our system:
 
 - All discount offers have an `expiresIn` value which denotes the number of days we have until the offer expires.
 - All discount offers have a `discountInPercent` value which gives the percent of discount on the partner products.
