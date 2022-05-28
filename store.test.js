@@ -42,12 +42,10 @@ describe("Store", () => {
     );
   });
   it('should throw an error if discount is superior to 50', () => {
-    try {
-      new Store([new DiscountOffer("test", 2, 55)]).updateDiscounts()
-      console.log('Hello from try'); // @FIXME: code goes through this part, however it does not fail, even if it should.
-    } catch (error) {
-      expect(error).toEqual(new Error('discount should not be over 50'));
+    const checkMaximumDiscount = () => {
+      new Store([new DiscountOffer("test", 2, 55)]).updateDiscounts();
     }
+    expect(checkMaximumDiscount).toThrowError(new Error('discount should not be over 50'));
   });
   it("should neither expire nor decrease if partner is Ilek", () => {
     expect(new Store([new DiscountOffer("Ilek", 15, 15)]).updateDiscounts()).toEqual(
