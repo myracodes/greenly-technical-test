@@ -1,4 +1,4 @@
-import { Store, DiscountOffer } from "./store";
+import { Store, DiscountOffer } from "./store.js";
 
 import fs from "fs";
 
@@ -10,18 +10,16 @@ const discountOffers = [
 ];
 const store = new Store(discountOffers);
 
-const log = [];
+let log = "";
 
 for (let elapsedDays = 0; elapsedDays < 30; elapsedDays++) {
-  log.push(JSON.stringify(store.updateDiscounts()));
+  log.concat(JSON.stringify(store.updateDiscounts()));
 }
 
-/* eslint-disable no-console */
-fs.writeFile("output.txt", log, err => {
+fs.writeFile("output.txt", log, (err) => {
   if (err) {
     console.log("error");
   } else {
     console.log("success");
   }
 });
-/* eslint-enable no-console */
