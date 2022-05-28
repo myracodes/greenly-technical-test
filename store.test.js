@@ -6,6 +6,11 @@ describe("Store", () => {
       [new DiscountOffer("test", 1, 2)]
     );
   });
+  it("should decrease the discount by 2 if the partner is BackMarket", () => {
+    expect(new Store([new DiscountOffer("BackMarket", 2, 10)]).updateDiscounts()).toEqual(
+      [new DiscountOffer("BackMarket", 1, 8)]
+    );
+  });
   it("should decrease the discount twice as fast after expiration date has passed", () => {
     expect(new Store([new DiscountOffer("test", -1, 4)]).updateDiscounts()).toEqual(
       [new DiscountOffer("test", -2, 2)]

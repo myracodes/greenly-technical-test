@@ -17,8 +17,14 @@ export class Store {
         this.discountOffers[i].partnerName != "Vinted"
       ) {
         if (this.discountOffers[i].discountInPercent > 0) {
-          if (this.discountOffers[i].partnerName != "Ilek") {
+          if (
+            this.discountOffers[i].partnerName != "Ilek" &&
+            this.discountOffers[i].partnerName != "BackMarket"
+          ) {
             this.discountOffers[i].discountInPercent = this.discountOffers[i].discountInPercent - 1;
+          }
+          if (this.discountOffers[i].partnerName === "BackMarket") {
+            this.discountOffers[i].discountInPercent = this.discountOffers[i].discountInPercent - 2;
           }
         }
       } else {

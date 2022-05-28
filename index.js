@@ -6,7 +6,8 @@ const discountOffers = [
   new DiscountOffer("Velib", 20, 30),
   new DiscountOffer("Naturalia", 10, 5),
   new DiscountOffer("Vinted", 5, 40),
-  new DiscountOffer("Ilek", 15, 40)
+  new DiscountOffer("Ilek", 15, 40),
+  new DiscountOffer("BackMarket", 15, 50)
 ];
 const store = new Store(discountOffers);
 
