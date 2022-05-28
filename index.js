@@ -13,7 +13,7 @@ const store = new Store(discountOffers);
 let log = "";
 
 for (let elapsedDays = 0; elapsedDays < 30; elapsedDays++) {
-  log += JSON.stringify(store.updateDiscounts());
+  log += `${JSON.stringify(store.updateDiscounts())}\n`;
 }
 
 fs.writeFile("output.txt", log, {
