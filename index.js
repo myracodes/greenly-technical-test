@@ -13,13 +13,16 @@ const store = new Store(discountOffers);
 let log = "";
 
 for (let elapsedDays = 0; elapsedDays < 30; elapsedDays++) {
-  log.concat(JSON.stringify(store.updateDiscounts()));
+  log += JSON.stringify(store.updateDiscounts());
 }
 
-fs.writeFile("output.txt", log, (err) => {
+fs.writeFile("output.txt", log, {
+  encoding: "utf-8"
+}, (err) => {
   if (err) {
     console.log("error");
   } else {
-    console.log("success");
+    console.log("Output file was successfully written, with the following content:");
+    console.log(fs.readFileSync("output.txt", "utf8"));
   }
 });
