@@ -11,60 +11,60 @@ export class Store {
     this.discountOffers = discountOffers;
   }
   updateDiscounts() {
-    for (var i = 0; i < this.discountOffers.length; i++) {
-      if (this.discountOffers[i].discountInPercent > 50) {
+    for (const discountOffer of this.discountOffers) {
+      if (discountOffer.discountInPercent > 50) {
         throw new Error("discount should not be over 50");
       }
       if (
-        this.discountOffers[i].partnerName != "Naturalia" &&
-        this.discountOffers[i].partnerName != "Vinted"
+        discountOffer.partnerName != "Naturalia" &&
+        discountOffer.partnerName != "Vinted"
       ) {
-        if (this.discountOffers[i].discountInPercent > 0) {
+        if (discountOffer.discountInPercent > 0) {
           if (
-            this.discountOffers[i].partnerName != "Ilek" &&
-            this.discountOffers[i].partnerName != "BackMarket"
+            discountOffer.partnerName != "Ilek" &&
+            discountOffer.partnerName != "BackMarket"
           ) {
-            this.discountOffers[i].discountInPercent = this.discountOffers[i].discountInPercent - 1;
+            discountOffer.discountInPercent = discountOffer.discountInPercent - 1;
           }
-          if (this.discountOffers[i].partnerName === "BackMarket") {
-            this.discountOffers[i].discountInPercent = this.discountOffers[i].discountInPercent - 2;
+          if (discountOffer.partnerName === "BackMarket") {
+            discountOffer.discountInPercent = discountOffer.discountInPercent - 2;
           }
         }
       } else {
-        if (this.discountOffers[i].discountInPercent < 50) {
-          this.discountOffers[i].discountInPercent = this.discountOffers[i].discountInPercent + 1;
-          if (this.discountOffers[i].partnerName == "Vinted") {
-            if (this.discountOffers[i].expiresIn < 11) {
-              if (this.discountOffers[i].discountInPercent < 50) {
-                this.discountOffers[i].discountInPercent = this.discountOffers[i].discountInPercent + 1;
+        if (discountOffer.discountInPercent < 50) {
+          discountOffer.discountInPercent = discountOffer.discountInPercent + 1;
+          if (discountOffer.partnerName == "Vinted") {
+            if (discountOffer.expiresIn < 11) {
+              if (discountOffer.discountInPercent < 50) {
+                discountOffer.discountInPercent = discountOffer.discountInPercent + 1;
               }
             }
-            if (this.discountOffers[i].expiresIn < 6) {
-              if (this.discountOffers[i].discountInPercent < 50) {
-                this.discountOffers[i].discountInPercent = this.discountOffers[i].discountInPercent + 1;
+            if (discountOffer.expiresIn < 6) {
+              if (discountOffer.discountInPercent < 50) {
+                discountOffer.discountInPercent = discountOffer.discountInPercent + 1;
               }
             }
           }
         }
       }
-      if (this.discountOffers[i].partnerName != "Ilek") {
-        this.discountOffers[i].expiresIn = this.discountOffers[i].expiresIn - 1;
+      if (discountOffer.partnerName != "Ilek") {
+        discountOffer.expiresIn = discountOffer.expiresIn - 1;
       }
-      if (this.discountOffers[i].expiresIn < 0) {
-        if (this.discountOffers[i].partnerName != "Naturalia") {
-          if (this.discountOffers[i].partnerName != "Vinted") {
-            if (this.discountOffers[i].discountInPercent > 0) {
-              if (this.discountOffers[i].partnerName != "Ilek") {
-                this.discountOffers[i].discountInPercent = this.discountOffers[i].discountInPercent - 1;
+      if (discountOffer.expiresIn < 0) {
+        if (discountOffer.partnerName != "Naturalia") {
+          if (discountOffer.partnerName != "Vinted") {
+            if (discountOffer.discountInPercent > 0) {
+              if (discountOffer.partnerName != "Ilek") {
+                discountOffer.discountInPercent = discountOffer.discountInPercent - 1;
               }
             }
           } else {
-            this.discountOffers[i].discountInPercent =
-              this.discountOffers[i].discountInPercent - this.discountOffers[i].discountInPercent;
+            discountOffer.discountInPercent =
+              discountOffer.discountInPercent - discountOffer.discountInPercent;
           }
         } else {
-          if (this.discountOffers[i].discountInPercent < 50) {
-            this.discountOffers[i].discountInPercent = this.discountOffers[i].discountInPercent + 1;
+          if (discountOffer.discountInPercent < 50) {
+            discountOffer.discountInPercent = discountOffer.discountInPercent + 1;
           }
         }
       }
