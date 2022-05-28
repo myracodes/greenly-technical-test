@@ -12,6 +12,9 @@ export class Store {
   }
   updateDiscounts() {
     for (var i = 0; i < this.discountOffers.length; i++) {
+      if (this.discountOffers[i].discountInPercent > 50) {
+        throw new Error("discount should not be over 50");
+      }
       if (
         this.discountOffers[i].partnerName != "Naturalia" &&
         this.discountOffers[i].partnerName != "Vinted"
