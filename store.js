@@ -1,8 +1,12 @@
 export class DiscountOffer {
-  constructor(partnerName, expiresIn, discountRateInPercent) {
+  constructor(
+    partnerName,
+    expiresIn,
+    discountInPercent,
+  ) {
     this.partnerName = partnerName;
     this.expiresIn = expiresIn;
-    this.discountInPercent = discountRateInPercent;
+    this.discountInPercent = discountInPercent;
   }
 }
 
