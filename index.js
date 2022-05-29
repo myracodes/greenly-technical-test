@@ -3,14 +3,21 @@ import { Store, DiscountOffer } from "./store.js";
 import fs from "fs";
 
 /**
-* PARAMS: partnerName, expiresIn, discountInPercent
+* PARAMS:
+partnerName,
+expiresIn,
+discountInPercent,
+discountChangePerDay,
+changingDiscount,
+stopsAfterExpiration,
+neverExpires
 */
 const discountOffers = [
-  new DiscountOffer("Velib", 20, 30, -1),
-  new DiscountOffer("Naturalia", 10, 5, 1),
-  new DiscountOffer("Vinted", 5, 40, 1),
-  new DiscountOffer("Ilek", 15, 40, 0),
-  new DiscountOffer("BackMarket", 15, 50, -2)
+  new DiscountOffer("Velib", 20, 30, -1, {}, false, false),
+  new DiscountOffer("Naturalia", 10, 5, 1, {}, false, false),
+  new DiscountOffer("Vinted", 5, 40, 1, {10: 2, 5: 3}, true, false),
+  new DiscountOffer("Ilek", 15, 15, 0, {}, false, true),
+  new DiscountOffer("BackMarket", 15, 50, -2, {}, false, false),
 ];
 const store = new Store(discountOffers);
 
