@@ -2,6 +2,9 @@ import { Store, DiscountOffer } from "./store.js";
 
 import fs from "fs";
 
+/**
+* PARAMS: partnerName, expiresIn, discountInPercent
+*/
 const discountOffers = [
   new DiscountOffer("Velib", 20, 30),
   new DiscountOffer("Naturalia", 10, 5),
@@ -14,7 +17,7 @@ const store = new Store(discountOffers);
 let log = "";
 
 for (let elapsedDays = 0; elapsedDays < 30; elapsedDays++) {
-  log += `${JSON.stringify(store.updateDiscounts())}\n`;
+  log += `Day ${elapsedDays + 1}:\n${JSON.stringify(store.updateDiscounts())} \n\n`;
 }
 
 fs.writeFile("output.txt", log, {
