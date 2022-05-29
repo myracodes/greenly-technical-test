@@ -3,16 +3,19 @@
  * @param partnerName indicates the brand / partner
  * @param expiresIn amount of days left before discount expires
  * @param discountInPercent total amount of discount
+ * @param discountPerDay amount of discount per day; should be -1 unless specified otherwise; has a positive value if discount increases, and a negative value if discount decreases.
  */
 export class DiscountOffer {
   constructor(
     partnerName,
     expiresIn,
     discountInPercent,
+    discountPerDay,
   ) {
     this.partnerName = partnerName;
     this.expiresIn = expiresIn;
     this.discountInPercent = discountInPercent;
+    this.discountPerDay = discountPerDay;
   }
 }
 
@@ -31,15 +34,7 @@ export class Store {
         discountOffer.partnerName != "Vinted"
       ) {
         if (discountOffer.discountInPercent > 0) {
-          if (
-            discountOffer.partnerName != "Ilek" &&
-            discountOffer.partnerName != "BackMarket"
-          ) {
-            discountOffer.discountInPercent = discountOffer.discountInPercent - 1;
-          }
-          if (discountOffer.partnerName === "BackMarket") {
-            discountOffer.discountInPercent = discountOffer.discountInPercent - 2;
-          }
+          discountOffer.discountInPercent = discountOffer.discountInPercent + discountOffer.discountPerDay;
         }
       } else {
         if (discountOffer.discountInPercent < 50) {
