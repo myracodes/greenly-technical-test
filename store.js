@@ -25,6 +25,9 @@ export class DiscountOffer {
     this.changingDiscount = changingDiscount;
     this.stopsAfterExpiration = stopsAfterExpiration;
     this.neverExpires = neverExpires;
+    // Object.assign(this.changingDiscount, {[expiresIn]: discountChangePerDay})
+
+    // @FIXME: this does not seem to work correctly, according to tests... Needs to be fixed urgently!
     if (Object.keys(changingDiscount).length === 0) { // if changingDiscount is an empty object, replace it with the value of expiresIn as the key, and the value of discountChangePerDay as the value
       this.changingDiscount = { [expiresIn]: discountChangePerDay };
     } else {
