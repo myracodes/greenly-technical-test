@@ -46,7 +46,7 @@ export class Store {
   
   /**
    * Updates discounts each day depending on various parameters: amount of discount, expiration date, specific discounts x days before expiration, etc.
-  */
+   */
   updateDiscounts() {
     
     for (const offer of this.discountOffers) {
@@ -57,7 +57,7 @@ export class Store {
 
       /**
        * Determines the amount of discount that needs to be applied at a given time
-      */
+       */
       const getDiscount = () => {
         const sorted = Object.keys(offer.changingDiscount).sort(function(a, b) { return a - b }) // sort discounts by the amount of days left before expiration date, from the smaller to the bigger
         let currentDiscount;
@@ -73,7 +73,7 @@ export class Store {
       // DETERMINE & APPLY THE CORRECT DISCOUNT
       let discountToApply = getDiscount();
       if (offer.expiresIn <= 0) {
-        discountToApply = discountToApply*2;
+        discountToApply = discountToApply * 2;
       }
 
       offer.discountInPercent = offer.discountInPercent + discountToApply;

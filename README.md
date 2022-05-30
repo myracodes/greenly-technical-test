@@ -8,8 +8,7 @@ A few notes on what I did:
 - In order to make the review easier, I used commit extended descriptions (with a commit title and body); I hope that will make my process and intentions very clear! If not, I will be happy to discuss anything unclear with you.
 - I knew I was not supposed to change API-related things, I might have broken that rule by renaming discountRateInPercent. In a real-life project, I would have checked how/where this was implemented and updated it everywhere / or not updated it. For the sake of the exercise and consistency, and since I don't have access to the rest of the product, I changed it. I hope this is okay!
 
-What I would like to to:
-- Turn classes to functions --> I am having trouble updating tests and I think it might come from the fact that I am modifying objects within a class, but I am not sure about this...
+Possible enhancements:
 - Type project using Typescript
 - Generate a JSON file, just like the output.txt, if that can be useful
 

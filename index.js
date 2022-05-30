@@ -33,7 +33,6 @@ fs.writeFile("output.txt", log, {
   if (err) {
     console.log("error");
   } else {
-    console.log("Output file was successfully written, with the following content:");
-    console.log(fs.readFileSync("output.txt", "utf8"));
+    console.log("Output file was successfully written, check it out! :)");
   }
 });
